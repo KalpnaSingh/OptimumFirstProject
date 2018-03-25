@@ -1,0 +1,24 @@
+<div>
+  <h2 style="display: inline;">Display View</h2>
+  <img id="settingImg" src="images/settingImage.png" alt="Smiley face" height="24" width="24" style="float:right" (click)="openSettingsModal()" />
+</div>
+<div>
+  <ngx-datatable 
+      class="ngx-datatable material striped " 
+      [rows]="rows" 
+      style="height:400px" 
+      [columnMode]="'force'" 
+      [headerHeight]="50" 
+      [footerHeight]="50" 
+      [rowHeight]="50" 
+      [scrollbarV]="true" 
+      [scrollbarH]="true" 
+      [limit]="10">
+
+      <ng-container *ngFor="let item of columns">
+          <ngx-datatable-column *ngIf="item.visible==true && calcAvg==true && item.dataType=='number'" [cellClass]="getCellClass" prop="{{item.shortName}}"></ngx-datatable-column>
+          <ngx-datatable-column *ngIf="item.visible==true && calcAvg==false && item.dataType=='number'" prop="{{item.shortName}}"></ngx-datatable-column>
+          <ngx-datatable-column *ngIf="item.visible==true && item.dataType!='number' " prop="{{item.shortName}}"></ngx-datatable-column>
+      </ng-container>
+  </ngx-datatable>
+</div>

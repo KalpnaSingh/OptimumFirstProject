@@ -1,0 +1,12 @@
+h1 {
+  color: #369;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 250%;
+}
+body {font-family: Arial, Helvetica, sans-serif;}
+
+/* The Modal (background) */
+@import "~@angular/material/prebuilt-themes/indigo-pink.css";
+@import '~@swimlane/ngx-datatable/release/index.css';
+@import '~@swimlane/ngx-datatable/release/themes/material.css';
+@import '~@swimlane/ngx-datatable/release/assets/icons.css';

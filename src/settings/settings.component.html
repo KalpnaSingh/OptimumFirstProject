@@ -1,0 +1,42 @@
+<div class="alert-box">
+    <div class="modal-header">
+        <h4 class="modal-title">Display Settings</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="height:50%">
+        <input type="checkbox" name="CalAvg" [checked]="calAvg" (change)="calAvg = !calAvg"> Calculate Average
+        <br>
+        <div class="row">
+            <div class="col-sm-3" style="width:50%;float: left;">
+                <div dnd-droppable class="panel panel-info" (onDropSuccess)="addToAvailItems($event)">
+                    <div class="panel-heading">Available Columns</div>
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <ul class="list-group">
+                                <li dnd-draggable [dragEnabled]="true" [dragData]="item" *ngFor="let item of availCol; let i = index" class="list-group-item">{{item.shortName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3" style="width:50%;float: left;">
+                <div dnd-droppable class="panel panel-info" (onDropSuccess)="addToDisplayItems($event)">
+                    <div class="panel-heading">Displayed Columns</div>
+                    <div class="panel-body">
+                        <div class="panel panel-default">
+                            <ul class="list-group">
+                                <li dnd-draggable [dragEnabled]="true" [dragData]="item" *ngFor="let item of disCol; let i = index" class="list-group-item">{{item.shortName}}</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onConfirm()">Ok</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+</div>
