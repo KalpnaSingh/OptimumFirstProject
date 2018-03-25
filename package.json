@@ -1,7 +1,7 @@
 {
-  "name": "angular-quickstart",
+  "name": "OptimusFirstProject",
   "version": "1.0.0",
-  "description": "QuickStart package.json from the documentation, supplemented with testing support",
+  "description": "Angular First project for Optimus Info",
   "scripts": {
     "build": "tsc -p src/",
     "build:watch": "tsc -p src/ -w",
