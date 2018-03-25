@@ -1,5 +1,7 @@
 # OptimumFirstProject
 
-#To run the application
+#To run the application :-
+
 npm install
+
 npm start
