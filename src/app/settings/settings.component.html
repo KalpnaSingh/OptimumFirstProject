@@ -1,0 +1,46 @@
+<div class="alert-box">
+    <div class="modal-header">
+        <h4 class="modal-title">Display Settings</h4>
+        <button type="button" class="close" aria-label="Close" (click)="onCancel()">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body" style="height:50%">
+        <input type="checkbox" [checked]="calAvg" (change)="calAvg = !calAvg"> Calculate Average
+        <br>
+        <div fxLayout="row" fxLayoutAlign="space-evenly">
+                <div>
+                  <div class="card-header">Available Columns</div>
+                  <ngx-dnd-container
+                    ngxDroppable
+                      [model]="availCol"
+                      dropZone="availColumns"        
+                      [dropZones]="['displayColumns']"
+                      [removeOnSpill]="true"
+                      (drop)="addToAvailItems($event)">
+                      <ng-template let-item="model">
+                        {{item.shortName}}
+                      </ng-template>
+                    </ngx-dnd-container>
+                </div>
+                <div>
+                  <div class="card-header">Displayed Columns</div>
+                  <ngx-dnd-container
+                  ngxDroppable
+                    [model]="disCol"
+                    dropZone="displayColumns"
+                    [dropZones]="['availColumns']"
+                    [removeOnSpill]="true"
+                    (drop)="addToDisplayItems($event)">
+                    <ng-template let-item="model">
+                        {{item.shortName}}
+                    </ng-template>
+                  </ngx-dnd-container>
+                </div>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" (click)="onConfirm()">Ok</button>
+        <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+    </div>
+</div>

@@ -1,16 +1,25 @@
-import { NgModule }      from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { HttpModule } from '@angular/http';
-import { AppComponent }  from './app.component';
-import { SettingsComponent } from '../settings/settings.component';
+
+
+import { AppComponent } from './app.component';
+import { SettingsComponent } from './settings/settings.component';
 import { ModalModule } from 'ngx-bootstrap';
-import { DndModule } from 'ngx-dnd'
+import { NgxDnDModule } from '@swimlane/ngx-dnd';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
-  imports:      [ BrowserModule, NgxDatatableModule, HttpModule, 
-    ModalModule.forRoot(), DndModule.forRoot() ],
-  declarations: [ AppComponent, SettingsComponent ],
-  bootstrap:    [ AppComponent, SettingsComponent ]
+  declarations: [
+    AppComponent,
+    SettingsComponent
+  ],
+  imports: [
+    BrowserModule, NgxDatatableModule, HttpModule,
+    ModalModule.forRoot(), NgxDnDModule, FlexLayoutModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent, SettingsComponent]
 })
 export class AppModule { }
